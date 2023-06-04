@@ -1,0 +1,85 @@
+# PPO parameters
+- batch_steps: 4096
+  clip_range: 0.4
+  entropy_coef: 0
+  environments: 1
+  epochs: 20
+  lambda: 0.9
+  gamma: 0.99
+  learn_rate: 0.00003
+  max_grad_norm: 0.5
+  mini_batch_size: 64
+  NN_activation: ReLU
+  NN_log_std_init: -1
+  NN_orthogonal_init: false
+  normalize_advantage: true
+  policy_network: [256,256]
+  total_time_steps: 4000000
+  value_coef: 0.5
+  value_network: [256,256]
+
+# Symmetry learning parameters
+- use_sym_learning: false
+
+# Symmetry transformation (xz-plane symmetry)
+- - algorithm: msl          # asl / psl / msl / msl_original / none
+    obs_indices: [0,1,2,3,4,5,6,7,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,27,26,25,24]
+    obs_multiplier: [1,-1,1,1,-1,1,-1,1,-1,-1,1,1,-1,-1,1,1,-1,-1,1,1,-1,-1,1,1,1,1,1,1]
+    act_indices: [6,7,4,5,2,3,0,1]
+    act_multiplier: [-1,1,-1,1,-1,1,-1,1]
+    policy_weight: 10
+    value_weight: 0.5
+    
+# Symmetry transformation (yz-plane symmetry)
+  - algorithm: reuse        # reuse parameter from first transformation (but it can be set independently)
+    obs_indices: [0,1,2,3,4,5,6,7,12,13,14,15,8,9,10,11,20,21,22,23,16,17,18,19,25,24,27,26]
+    obs_multiplier: [1,1,-1,-1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1]
+    act_indices: [2,3,0,1,6,7,4,5]
+    act_multiplier: [-1,-1,-1,-1,-1,-1,-1,-1]
+    policy_weight: reuse
+    value_weight: reuse
+    
+# Symmetry transformation (y=x plane)
+  - algorithm: reuse
+    obs_indices: [0,2,1,4,3,5,7,6,8,9,10,11,20,21,22,23,16,17,18,19,12,13,14,15,24,27,26,25]
+    obs_multiplier: [1,1,1,1,1,1,-1,-1,-1,-1,1,1,-1,-1,-1,-1,-1,-1,1,1,-1,-1,-1,-1,1,1,1,1]
+    act_indices: [0,1,6,7,4,5,2,3]
+    act_multiplier: [-1,1,-1,-1,-1,1,-1,-1]
+    policy_weight: reuse
+    value_weight: reuse
+    
+# Symmetry transformation (y=-x plane)
+  - algorithm: reuse
+    obs_indices: [0,2,1,4,3,5,7,6,16,17,18,19,12,13,14,15,8,9,10,11,20,21,22,23,26,25,24,27]
+    obs_multiplier: [1,-1,-1,-1,-1,1,1,1,-1,-1,-1,-1,-1,-1,1,1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1]
+    act_indices: [4,5,2,3,0,1,6,7]
+    act_multiplier: [-1,-1,-1,1,-1,-1,-1,1]
+    policy_weight: reuse
+    value_weight: reuse
+    
+# Symmetry transformation (90 deg rotation)
+  - algorithm: reuse
+    obs_indices: [0,2,1,4,3,5,7,6,20,21,22,23,8,9,10,11,12,13,14,15,16,17,18,19,27,24,25,26]
+    obs_multiplier: [1,1,-1,-1,1,1,-1,-1,1,1,1,1,1,1,-1,-1,1,1,1,1,1,1,-1,-1,1,1,1,1]
+    act_indices: [6,7,0,1,2,3,4,5]
+    act_multiplier: [1,1,1,-1,1,1,1,-1]
+    policy_weight: reuse
+    value_weight: reuse
+    
+# Symmetry transformation (180 deg rotation)
+  - algorithm: reuse
+    obs_indices: [0,1,2,3,4,5,6,7,16,17,18,19,20,21,22,23,8,9,10,11,12,13,14,15,26,27,24,25]
+    obs_multiplier: [1,-1,-1,-1,-1,1,-1,-1,1,1,-1,-1,1,1,-1,-1,1,1,-1,-1,1,1,-1,-1,1,1,1,1]
+    act_indices: [4,5,6,7,0,1,2,3]
+    act_multiplier: [1,-1,1,-1,1,-1,1,-1]
+    policy_weight: reuse
+    value_weight: reuse
+    
+# Symmetry transformation (270 deg rotation)
+  - algorithm: reuse
+    obs_indices: [0,2,1,4,3,5,7,6,12,13,14,15,16,17,18,19,20,21,22,23,8,9,10,11,25,26,27,24]
+    obs_multiplier: [1,-1,1,1,-1,1,1,-1,1,1,-1,-1,1,1,1,1,1,1,-1,-1,1,1,1,1,1,1,1,1]
+    act_indices: [2,3,4,5,6,7,0,1]
+    act_multiplier: [1,-1,1,1,1,-1,1,1]
+    policy_weight: reuse
+    value_weight: reuse

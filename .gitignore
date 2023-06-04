@@ -1,0 +1,5 @@
+*.pyc
+/models/*
+
+# ignore hidden folders but include hidden files
+.*/

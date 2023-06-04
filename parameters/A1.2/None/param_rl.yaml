@@ -1,0 +1,25 @@
+# PPO parameters
+- batch_steps: 4096
+  clip_range: 0.4
+  entropy_coef: 0
+  environments: 1
+  epochs: 20
+  lambda: 0.9
+  gamma: 0.99
+  learn_rate: 0.00003
+  max_grad_norm: 0.5
+  mini_batch_size: 64
+  NN_activation: ReLU
+  NN_log_std_init: -1
+  NN_orthogonal_init: false
+  normalize_advantage: true
+  policy_network: [256,256]
+  total_time_steps: 4000000
+  value_coef: 0.5
+  value_network: [256,256]
+
+# Symmetry learning parameters
+- use_sym_learning: false
+
+# Symmetry transformation (None)
+-

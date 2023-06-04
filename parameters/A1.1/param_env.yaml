@@ -1,0 +1,9 @@
+# Ant parameters
+available_targets: [0,1,2,3,4,5,6,7] # used by pybullet (these are used for evaluation)
+train_targets: [0,1,2,3,4,5,6,7] # used by our env wrapper to restrict train targets (must be a subset of available_targets)
+inclination: 0 # degrees
+tilt_orientation: 0 # fall to target X
+feet_mass: []
+terminate_if_no_progress: false # terminate episode earlier if robot is not progressing
+action_multiplier: [1,1,1,1,1,1,1,1]
+adapt_action_space: false # true means divide NN output by action multiplier so that the true action space range is [-1,1]
