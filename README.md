@@ -6,9 +6,9 @@
 
 ASL is a novel symmetry extension for actor-critic methods that directs the policy to perform symmetric actions in symmetric states. The advantage in relation to similar extensions is the ability to learn and compensate asymmetries in the robot, environment, reward function or agent (control process). Another key strength is its performance when generalizing knowledge to hidden symmetric states. (see [1] for more details)
 
-[1] Abreu, M., Reis, L. P., Lau, N. (2023). Symmetry-learning actor-critic extension to handle imperfect symmetry: case study of an ant robot. arXiv preprint \
-[2] Kasaei, M., Abreu, M., Lau, N., Pereira, A., & Reis, L. P. (2021). A CPG-based agile and versatile locomotion framework using proximal symmetry loss. arXiv preprint arXiv:2103.00928. \
-[3] Yu, W., Turk, G., & Liu, C. K. (2018). Learning symmetric and low-energy locomotion. ACM Transactions on Graphics (TOG), 37(4), 1-12.
+[1] Abreu, M., Reis, L. P., Lau, N. (2023). [Addressing Imperfect Symmetry: a Novel Symmetry-Learning Actor-Critic Extension](https://arxiv.org/abs/2309.02711). arXiv preprint arXiv:2309.02711. \
+[2] Kasaei, M., Abreu, M., Lau, N., Pereira, A., & Reis, L. P. (2021). [A CPG-based agile and versatile locomotion framework using proximal symmetry loss](https://arxiv.org/abs/2103.00928). arXiv preprint arXiv:2103.00928. \
+[3] Yu, W., Turk, G., & Liu, C. K. (2018). [Learning symmetric and low-energy locomotion](https://dl.acm.org/doi/10.1145/3197517.3201397). ACM Transactions on Graphics (TOG), 37(4), 1-12.
 
 ## Implementation details
 
